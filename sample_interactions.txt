@@ -1,13 +1,3 @@
-#help please
-#textBot send text to six zero seven three seven two three seven seven zero that alexa is cool
-#emailBot send email to every contact that it's a broadcast from alexa
-#emailBot send mail to vidya's contact that it's a message to vidya
-#brickhackBot what is brick hack
-#vidya who is Sagar
-#vaibhav who is Kollipara
-#strangerthings what is Alexa
-#stop thank you
-
 
 ### Alexa Sample Utterances
 

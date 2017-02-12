@@ -135,7 +135,6 @@ def emailIntentHandler(intent):
     speech_output = ""
 
     try:
-        emailId = ""
         messageContent = ""
         contactList = []
 
@@ -147,8 +146,7 @@ def emailIntentHandler(intent):
             for contact in contacts:
                 contactList.append(contacts[contact])
         else:
-            emailId = contacts[contactName]
-            contactList.append(emailId)
+            contactList.append(contacts[contactName])
 
         messageContent = slots['messageSlot']['value']
 
@@ -231,14 +229,12 @@ def sendText(to_num, msg_text="Hey folks have a great Brick Hack", from_num=TWIL
 def strangerIntentHandler(intent):
     card_title = "Strangerthings"
 
-    print(intent['slots'])
-
     slots = intent['slots']
 
     try:
         result = wikipedia.summary(slots['unknownSlot']['value'],sentences=1)
 
-        speech_output = "All I know from Wikipedia is " + result
+        speech_output = "Wikipedia says " + result
     except Exception as e:
         print(e)
         speech_output = "Oops something went wrong."
