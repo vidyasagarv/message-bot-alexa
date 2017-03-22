@@ -1,0 +1,69 @@
+### List of Utterances
+textBot send text to {numberSlot} that {Hi | msgSlot}
+textBot send text to {numberSlot} that {Hi there | msgSlot}
+textBot send text to {numberSlot} that {Hi there friend | msgSlot}
+textBot send text to {numberSlot} that {Hi there my friend | msgSlot}
+textBot send text to {numberSlot} that {Hi there my good friend | msgSlot}
+textBot send text to {numberSlot} saying {Hi | msgSlot}
+textBot send text to {numberSlot} saying {Hi there | msgSlot}
+textBot send text to {numberSlot} saying {Hi there friend | msgSlot}
+textBot send text to {numberSlot} saying {Hi there my friend | msgSlot}
+textBot send text to {numberSlot} saying {Hi there my good friend | msgSlot}
+textBot send text message to {numberSlot} that {Hi | msgSlot}
+textBot send text message to {numberSlot} that {Hi there | msgSlot}
+textBot send text message to {numberSlot} that {Hi there friend | msgSlot}
+textBot send text message to {numberSlot} that {Hi there my friend | msgSlot}
+textBot send text message to {numberSlot} that {Hi there my good friend | msgSlot}
+textBot send message to {numberSlot} saying {Hi | msgSlot}
+textBot send message to {numberSlot} saying {Hi there | msgSlot}
+textBot send message to {numberSlot} saying {Hi there friend | msgSlot}
+textBot send message to {numberSlot} saying {Hi there my friend | msgSlot}
+textBot send message to {numberSlot} saying {Hi there my good friend | msgSlot}
+emailBot send email to {example at gmail dot com | addressSlot} that {Hi | messageSlot}
+emailBot send email to {example at gmail dot com | addressSlot} that {Hi there | messageSlot}
+emailBot send email to {example at gmail dot com | addressSlot} that {Hi there friend | messageSlot}
+emailBot send email to {example at gmail dot com | addressSlot} that {Hi there my friend | messageSlot}
+emailBot send email to {example at gmail dot com | addressSlot} saying {Hi | messageSlot}
+emailBot send email to {example at gmail dot com | addressSlot} saying {Hi there | messageSlot}
+emailBot send email to {example at gmail dot com | addressSlot} saying {Hi there friend | messageSlot}
+brickhackBot where is Brick Hack
+brickhackBot what is Brick Hack
+vidya who is Vidya Sagar
+vidya who is Vidya
+vidya who is Sagar
+vidya who is Sugar
+vidya tell me about Vidya Sagar
+vidya tell me about Vidya
+vidya tell me about Sagar
+vidya tell me about Sugar
+strangerthings who is {Amazon Alexa | unknownSlot}
+strangerthings what is {Amazon Alexa | unknownSlot}
+strangerthings when is {Amazon Alexa | unknownSlot}
+strangerthings when did {Amazon Alexa | unknownSlot}
+strangerthings how {Amazon Alexa | unknownSlot}
+help what can you do
+help what can it do
+help what to do
+help what do you do
+help Help me
+help Help
+help please
+help I do not know what to do
+help do not know what to do
+help don't know what to do
+help what can I ask you
+help how can I use you
+help get help
+stop leave
+stop quit
+stop bye
+stop good bye
+stop stop
+stop cancel
+stop enough
+stop please stop
+stop got it
+stop got it thanks
+stop thank you
+stop thats all
+stop thats all thank you

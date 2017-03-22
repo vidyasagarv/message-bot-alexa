@@ -1,0 +1,63 @@
+{
+  "intents": [
+    {
+      "intent": "textBot",
+      "slots": [
+        {
+          "name": "numberSlot",
+          "type": "AMAZON.NUMBER"
+        },
+        {
+          "name": "msgSlot",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "emailBot",
+      "slots": [
+        {
+          "name": "addressSlot",
+          "type": "AMAZON.LITERAL"
+        },
+        {
+          "name": "messageSlot",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "brickhackBot",
+      "slots": [
+        {
+          "name": "brickhackSlot",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "vidya",
+      "slots": [
+        {
+          "name": "vidyaSlot",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "strangerthings",
+      "slots": [
+        {
+          "name": "unknownSlot",
+          "type": "AMAZON.LITERAL"
+        }
+      ]
+    },
+    {
+      "intent": "help"
+    },
+    {
+      "intent": "stop"
+    }
+  ]
+}

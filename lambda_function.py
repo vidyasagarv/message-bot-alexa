@@ -1,6 +1,7 @@
 from __future__ import print_function
 from twilio.rest import TwilioRestClient
 import wikipedia
+import re
 # Import SparkPost for sending emails
 from sparkpost import SparkPost
 
@@ -9,12 +10,6 @@ TWILIO_APPLICATION_ID="amzn1.ask.skill.def0feb0-5895-4396-ac80-d87ff1281cef"
 ACCOUNT_SID = "AC3c2433c398c991ba434be345fc20a119"
 AUTH_TOKEN = "138ad8a26744f7c96f1cef48759a539d"
 TWILIO_NUMBER = "+16072501055"
-
-contacts = {"vidya's contact": "vidyasagar.039@gmail.com",
-                    "sagar's contact": "vvallur1@binghamton.edu",
-                    "pradeep's contact": "puppula1@binghamton.edu",
-                    "vaibhav's contact": "vkollip1@binghamton.edu",
-                    "jack's contact": "jack.sparo435@gmail.com"}
 
 def lambda_handler(event, context):
 
@@ -63,12 +58,6 @@ def on_intent(intent_request):
     elif intent_name == "vidya":
         return vidyaIntentHandler(intent)
 
-    elif intent_name == "pradeep":
-        return pradeepIntentHandler(intent)
-
-    elif intent_name == "vaibhav":
-        return vaibhavIntentHandler(intent)
-
     elif intent_name == "strangerthings":
         return strangerIntentHandler(intent)
 
@@ -101,7 +90,7 @@ def get_welcome_response():
 def brickhackIntentHandler(intent):
     card_title = "BrickHack"
 
-    speech_output = "BrickHack is RIT's collegiate hackathon the place for hackers and it is at RIT, Rochester"
+    speech_output = "BrickHack is RIT's collegiate hackathon the place for hackers and it is located at RIT, Rochester"
 
     return build_response(None, build_speech_resp(
         card_title, speech_output, None, False))
@@ -110,22 +99,6 @@ def vidyaIntentHandler(intent):
     card_title = "Vidya"
 
     speech_output = "He is an awesome hacker"
-
-    return build_response(None, build_speech_resp(
-        card_title, speech_output, None, False))
-
-def pradeepIntentHandler(intent):
-    card_title = "Pradeep"
-
-    speech_output = "He is a true hacker"
-
-    return build_response(None, build_speech_resp(
-        card_title, speech_output, None, False))
-
-def vaibhavIntentHandler(intent):
-    card_title = "Vaibhav"
-
-    speech_output = "He hacked a hacker"
 
     return build_response(None, build_speech_resp(
         card_title, speech_output, None, False))
@@ -140,25 +113,37 @@ def emailIntentHandler(intent):
 
         slots = intent['slots']
 
-        contactName = slots['contactSlot']['value']
+        emailAddress = slots['addressSlot']['value']
 
-        if contactName == "every contact":
-            for contact in contacts:
-                contactList.append(contacts[contact])
-        else:
-            contactList.append(contacts[contactName])
+        originalAddress = emailAddress
+
+        if emailAddress != None and emailAddress != "":
+            emailAddress = re.sub(r' dot ', r'.', emailAddress)
+            emailAddress = re.sub(r' at ', r'@', emailAddress)
+            emailAddress = re.sub(r' ', r'', emailAddress)
+            emailAddress = re.sub(r'zero', r'0', emailAddress)
+            emailAddress = re.sub(r'one', r'1', emailAddress)
+            emailAddress = re.sub(r'two', r'2', emailAddress)
+            emailAddress = re.sub(r'three', r'3', emailAddress)
+            emailAddress = re.sub(r'four', r'4', emailAddress)
+            emailAddress = re.sub(r'five', r'5', emailAddress)
+            emailAddress = re.sub(r'six', r'6', emailAddress)
+            emailAddress = re.sub(r'seven', r'7', emailAddress)
+            emailAddress = re.sub(r'eight', r'8', emailAddress)
+            emailAddress = re.sub(r'nine', r'9', emailAddress)
+            contactList.append(emailAddress)
 
         messageContent = slots['messageSlot']['value']
 
         # call the method to send email
         if(sendEmail(to_addr= contactList, msg_text=messageContent)):
             #success
-            speech_output = "Email sent"
+            speech_output = "Email sent to " + emailAddress
         else:
             #failure
-            speech_output = "Sorry could not sent the email... I will ask the support guys to fix the issue"
+            speech_output = "Sorry could not sent the email. Please try again."
     except Exception:
-        speech_output = "too much noise.... Sorry didn't get the details... please try again"
+        speech_output = "Sorry didn't get the details. Please try again"
 
     # Setting reprompt_text to None signifies that we do not want to reprompt
     # the user. If the user does not respond or says something that is not
